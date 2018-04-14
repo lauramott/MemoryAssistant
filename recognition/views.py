@@ -72,7 +72,8 @@ def train(request):
 
     Ids, faces = getImagesWithID(path)
     recognizer.train(faces, np.array(Ids))
-    recognizer.write('C:/users/laura/desktop/src/trainer/trainer.yml')
+    trainer_path = os.path.join(BASE_DIR, "trainer/trainer.yml")
+    recognizer.write(trainer_path)
 
     return redirect('/')
 
@@ -84,7 +85,9 @@ def detect(request):
     recognizer = cv2.face.LBPHFaceRecognizer_create()  # LBPH Face Recognizer
     # recognizer = cv2.face.EigenFaceRecognizer_create()  # LBPH Face Recognizer
     # recognizer = cv2.face.FisherFaceRecognizer_create()  # LBPH Face Recognizer
-    recognizer.read('C:/users/laura/desktop/src/trainer/trainer.yml')
+    trainer_path = os.path.join(BASE_DIR, "trainer/trainer.yml")
+    print(trainer_path)
+    recognizer.read(trainer_path) # C:/users/laura/desktop/src/trainer/trainer.yml')
     faceCascade = cv2.CascadeClassifier("cascades/haarcascade_frontalface_default.xml")
 
     cam = cv2.VideoCapture(0)

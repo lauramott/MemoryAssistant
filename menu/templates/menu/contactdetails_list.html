@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block head_title %} Menu || {{ block.super }}{% endblock head_title %}
+
+{% block content %}
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.container {
+    position: relative;
+    text-align: center;
+}
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+h1{
+    margin: 20px;
+    font-family: "Courier New";
+}
+h4{
+    font-family: "Courier New";
+    margin: 10px;
+}
+</style>
+</head>
+<h1>My Contacts</h1>    <a href='{% url "menu:create"%}'>Add New</a>
+<ul>
+    {% for obj in object_list %}
+
+    <h4>{{ obj }} - {{ obj.relationship }}<br/>
+        {% if obj.image %}
+        <div class="container">
+        <a href='{{ obj.get_absolute_url }}'><img src='{{ obj.image.url }}' class='img-responsive' height="250px" /></a>
+        </div>{% endif %}
+    </h4>
+    {% empty %}
+    <li><a href='{% url "menu:create"%}'>Add One</a></li>
+
+
+    {% endfor %}
+</ul>
+
+{% endblock %}

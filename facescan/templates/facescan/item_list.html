@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block head_title %} Images || {{ block.super }}{% endblock head_title %}
+
+{% block content %}
+<h1>Images: <small><a href='{% url "facescan:create" %}'>Add</a></small></h1>
+<ul>
+    {% for obj in object_list %}
+    <li><a href='{{ obj.get_absolute_url }}'>{{ obj.name }}</a><br/>
+        {% if obj.image %}
+            <img src='{{ obj.image.url }}' alt="img" class='img-responsive img-rounded'/>
+        {% endif %}
+
+    </li>
+    {% empty %}
+        <li><a href='{% url "facescan:create" %}'>Add New Image</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

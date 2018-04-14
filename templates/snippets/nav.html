@@ -1,0 +1,40 @@
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        h1 {
+            margin: 20px;
+        }
+        .btn {
+            background-color: DodgerBlue;
+            border: none;
+            color: white;
+            padding: 12px 16px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Darker background on mouse-over */
+        .btn:hover {
+            background-color: RoyalBlue;
+        }
+        </style>
+
+</head>
+<div class='container'>
+<h1> Memory assistant </h1>
+
+<a href='{% url "recognition:detect" %}'><button class="btn"><i class="material-icons">camera_alt</i> FACESCAN</button></a>
+<a href='{% url "menu:list" %}'><button class="btn"><i class="material-icons">group</i>  CONTACTS</button></a>
+<a href='{% url "home" %}'><button class="btn"><i class="material-icons">home</i>  HOME</button></a>
+<a href='{% url "profiles:profile_list" %}'><button class="btn"><i class="material-icons">person</i> MY PROFILE</button></a>
+
+{% if request.user.is_authenticated %}
+    <a href='{% url "recognition:train" %}'><button class="btn"> TRAIN</button></a>
+
+{% endif %}
+</div>

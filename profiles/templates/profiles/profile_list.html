@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block head_title %} {{ section }} | My Profile | {{ block.super }}{% endblock head_title %}
+
+{% block content %}
+
+<style>
+h1{
+    margin: 10px;
+}
+p{
+    font-family: "Courier New";
+    font-size:20px;
+}
+</style>
+
+<h1>My Profile</h1>
+<h1>Mary</h1>
+    <img src="https://www.rebeccafashion.com/media/wysiwyg/BlogAmanda/hairstyles-old-women-wavy-side-bob.jpg" height="300px"/>
+    <p>Name : Mary Southwell</br>
+    Age : 72</br>
+    Home Address : 20 London Street, Telford</br>
+    Phone Number : +447753090364</br>
+    Hobbies : Painting, Play the piano, Reading</br>
+
+    <img src='{{ form.instance.image.url }}' class='img-responsive'/>
+
+</p>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block head_title %} Image list : import image || {{ block.super }}{% endblock head_title %}
+
+{% block content %}
+<h1>Test image: </h1>
+<ul>
+    <img src="{{ id.Image.image.url }}" width="240">
+
+
+    <!--<form action="{% url 'recognition:upload_pic' %}" method="post" enctype="multipart/form-data">{% csrf_token %}-->
+
+        <!--<p>-->
+            <!--<input id="id_image" type="file" class="" name="image">-->
+        <!--</p>-->
+        <!--<input type="submit" name="submit"/>-->
+    <!--</form>-->
+
+  <!--{% if uploaded_file_url %}-->
+    <!--<p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>-->
+  <!--{% endif %}-->
+    <!---->
+        <!--{% if obj.image %}-->
+            <!--<img src='{{ obj.image.url }}' class='img-responsive'/>-->
+        <!--{% endif %}-->
+
+
+</ul>
+
+{% endblock %}

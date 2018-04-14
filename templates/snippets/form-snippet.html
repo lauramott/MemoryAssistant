@@ -1,0 +1,8 @@
+{% if form.errors.non_field_errors %}
+{{ form.errors.non_field_errors }}
+{% endif %}
+<form method='POST' action='' enctype='multipart/form-data'> {% csrf_token %}
+    <button type="button" style="background:3385ff;border:2" data-toggle="modal" data-target="#myModal">Take Pictures</button>
+    {{ form.as_p }}
+    <button type='submit'>Save</button>
+</form>

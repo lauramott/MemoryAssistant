@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block head_title %} My Profile || {{ block.super }}{% endblock head_title %}
+
+
+{% block content %}
+<h1>My Profile</h1>
+
+{% include 'snippets/sidebar.html' %}
+
+{% endblock %}

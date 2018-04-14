@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block head_title %} Images Detail || {{ block.super }}{% endblock head_title %}
+
+{% block content %}
+<div class='col-sm-6 col-sm-offset-3'>
+    <h1>{{ object.name }}</h1>
+    <img src='{{ instance.image.url }}' class='img-responsive'/>
+    <p>Image Name : {{ object.contact.name }}</p>
+    {% if object.contents %}
+    {% endif %}
+</div>
+
+{% endblock %}

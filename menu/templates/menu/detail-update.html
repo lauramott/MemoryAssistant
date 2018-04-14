@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block head_title %} {{ form.instance.name }} | Contacts | {{ block.super }}{% endblock head_title %}
+
+{% block content %}
+<h1>{{ form.instance.name }}</h1>
+<p>{{ form.instance.relationship }}</p>
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Input unique id and wait for webcam</h4>
+      </div>
+      <div class="modal-body">
+        <hr/>
+        <form action="/add" method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="inputId">Enter Unique ID*</label>
+            <input type="text" class="form-control" name="userId" id="inputId" placeholder="Enter Id">
+          </div>
+          <button type="submit" class="btn btn-warning">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if form.instance.image %}
+<img src='{{ form.instance.image.url }}' class='img-responsive' height="250px" />
+{% endif %}
+
+
+
+<hr/>
+<h3>Make Changes</h3>
+{% include 'snippets/form-snippet.html' with form=form %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block head_title %}{{ form.instance.name }} | Images Detail | {{ block.super }}{% endblock head_title %}
+
+{% block content %}
+<h1>{{ form.instance.name }}</h1>
+    {% if form.instance.image %}
+        <img src='{{ form.instance.image.url }}' class='img-responsive'/>
+    {% endif %}
+<p>Image Name : {{ form.instance.contact.name }}</p>
+
+<hr/>
+<h3>Make Changes</h3>
+{% include 'snippets/form-snippet.html' with form=form %}
+
+{% endblock %}
